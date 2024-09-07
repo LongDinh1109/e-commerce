@@ -246,7 +246,7 @@ function ProductVariantInfo({ allVariants, productId, productName, onChangeVaria
         {renderVariantsList()}
       </Box>
 
-      <Stack direction="row" justifyContent="space-between">
+      {/* <Stack direction="row" justifyContent="space-between">
         <Typography variant="subtitle1" sx={{ mt: 0.5 }}>
           {t('products.quantity')}
         </Typography>
@@ -259,14 +259,14 @@ function ProductVariantInfo({ allVariants, productId, productName, onChangeVaria
             onIncrease={handleIncreaseQuantity}
           />
         </Box>
-      </Stack>
+      </Stack> */}
 
       <Divider sx={{ borderStyle: 'dashed' }} />
 
       {isSoldOut && <>Sản phẩm đã hết</>}
 
       <Stack spacing={2} direction={{ xs: 'column', sm: 'row' }} sx={{ mt: 5 }}>
-        <MButton
+        {/* <MButton
           fullWidth
           size="large"
           type="button"
@@ -278,7 +278,7 @@ function ProductVariantInfo({ allVariants, productId, productName, onChangeVaria
           disabled={isLoadingCart || isSoldOut}
         >
           {t('dashboard.orders.add-to-cart')}
-        </MButton>
+        </MButton> */}
         <Button fullWidth size="large" variant="contained" disabled={isSoldOut} onClick={handleBuyNow}>
           {t('dashboard.orders.buy')}
         </Button>

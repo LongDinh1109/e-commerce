@@ -1,13 +1,22 @@
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 import arrowIosUpwardFill from '@iconify/icons-eva/arrow-ios-upward-fill';
 import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
+import phoneFill from '@iconify/icons-eva/phone-fill';
+import newsFill from '@iconify/icons-eva/book-open-fill';
+import productFill from '@iconify/icons-eva/cube-fill';
+import aboutFill from '@iconify/icons-eva/award-fill';
+import gridFill from '@iconify/icons-eva/grid-fill';
+import plusFill from '@iconify/icons-eva/plus-fill';
+
+
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Link, Grid, List, Stack, Popover, ListItem, ListSubheader, CardActionArea } from '@material-ui/core';
+import { useClickOutside } from '../../hooks/useClickOutside';
 
 // ----------------------------------------------------------------------
 
@@ -64,128 +73,10 @@ MenuDesktopItem.propTypes = {
   onClose: PropTypes.func
 };
 
-function MenuDesktopItem({ item, pathname, isHome, isOpen, isOffset, onOpen, onClose }) {
-  const { title, path, children, image } = item;
+function MenuDesktopItem({ item, pathname, isHome, isOffset}) {
+  const { title, path, image, icon } = item;
   const isActive = pathname === path;
 
-  if (children) {
-    return (
-      <div key={title}>
-        <LinkStyle
-          onClick={onOpen}
-          sx={{
-            ...(isHome && { color: 'common.white' }),
-            ...(isOffset && { color: 'text.primary' }),
-            ...(isOpen && { opacity: 0.48 })
-          }}
-        >
-          {title.length > 25 ? `${title.substring(0, 22)}...` : title}
-          <Box
-            component={Icon}
-            icon={isOpen ? arrowIosUpwardFill : arrowIosDownwardFill}
-            sx={{ ml: 0.5, width: 16, height: 16 }}
-          />
-        </LinkStyle>
-
-        <Popover
-          open={isOpen}
-          anchorReference="anchorPosition"
-          anchorPosition={{ top: 120, left: 0 }}
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-          transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-          onClose={onClose}
-          PaperProps={{
-            sx: {
-              px: 3,
-              pt: 5,
-              pb: 3,
-              right: 16,
-              margin: 'auto',
-              maxWidth: 1280,
-              borderRadius: 2,
-              boxShadow: (theme) => theme.customShadows.z24
-            }
-          }}
-        >
-          <Grid container spacing={3}>
-            {children.map((list) => {
-              const { subheader, items } = list;
-
-              return (
-                <Grid key={subheader} item xs={12} md={subheader === 'Dashboard' ? 6 : 2}>
-                  <List disablePadding>
-                    <ListSubheader
-                      disableSticky
-                      disableGutters
-                      sx={{
-                        display: 'flex',
-                        lineHeight: 'unset',
-                        alignItems: 'center',
-                        color: 'text.primary',
-                        typography: 'overline'
-                      }}
-                    >
-                      <IconBullet type="subheader" /> {subheader}
-                    </ListSubheader>
-
-                    {items.map((item) => (
-                      <ListItem
-                        key={item.title}
-                        to={item.path}
-                        component={RouterLink}
-                        underline="none"
-                        sx={{
-                          p: 0,
-                          mt: 3,
-                          typography: 'body2',
-                          color: 'text.secondary',
-                          transition: (theme) => theme.transitions.create('color'),
-                          '&:hover': { color: 'text.primary' },
-                          ...(item.path === pathname && {
-                            typography: 'subtitle2',
-                            color: 'text.primary'
-                          })
-                        }}
-                      >
-                        {item.title === 'Dashboard' ? (
-                          <CardActionArea
-                            sx={{
-                              py: 5,
-                              px: 10,
-                              borderRadius: 2,
-                              color: 'primary.main',
-                              bgcolor: 'background.neutral'
-                            }}
-                          >
-                            <Box
-                              component={motion.img}
-                              whileTap="tap"
-                              whileHover="hover"
-                              variants={{
-                                hover: { scale: 1.02 },
-                                tap: { scale: 0.98 }
-                              }}
-                              src="/static/illustrations/illustration_dashboard.png"
-                              sx={{ minWidth: 420 }}
-                            />
-                          </CardActionArea>
-                        ) : (
-                          <>
-                            <IconBullet />
-                            {item.title}
-                          </>
-                        )}
-                      </ListItem>
-                    ))}
-                  </List>
-                </Grid>
-              );
-            })}
-          </Grid>
-        </Popover>
-      </div>
-    );
-  }
 
   return (
     <LinkStyle
@@ -194,6 +85,7 @@ function MenuDesktopItem({ item, pathname, isHome, isOpen, isOffset, onOpen, onC
       component={RouterLink}
       sx={{
         height: '80%',
+        gap: '5px',
         ...(isHome && { color: 'common.white' }),
         ...(isOffset && { color: 'text.primary' }),
         ...(isActive && { color: 'common.white' })
@@ -210,55 +102,131 @@ function MenuDesktopItem({ item, pathname, isHome, isOpen, isOffset, onOpen, onC
             backgroundSize: 'contain',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
-            // mask: `url(${image}) no-repeat center / contain`,
-            // WebkitMask: `url(${image}) no-repeat center / contain`,
-            // bgcolor: 'text.primary',
-            // ...(isActive && { bgcolor: 'common.white' })
           }}
         />
       )}
-      {title.length > 25 ? `${title.substring(0, 22)}...` : title}
+      {icon && <Box component={Icon} icon={icon} sx={{ ml: 0.5, width: 15, height: 15 }} />}
+      <div className="">{title}</div>
     </LinkStyle>
   );
 }
 
+function MenuDropdownItem({ item, isOpen, isOffset, onToggle,onClickOutSide}) {
+  const ref = useRef(null)
+  
+  useClickOutside(ref, onClickOutSide)
+  if (item && item.length > 0) {
+    return (
+      <div ref={ref}>
+        <button className="nav-all-prod-list" onClick={onToggle}>
+          <Icon icon={gridFill} width={20} height={20} />
+          <LinkStyle
+            sx={{
+              ...(isOffset && { color: 'text.primary' }),
+              ...(isOpen && { opacity: 0.48 })
+            }}
+          >
+            <span className="nav-all-prod-txt">Danh sách sản phẩm</span>
+            <Box
+              component={Icon}
+              icon={isOpen ? arrowIosUpwardFill : arrowIosDownwardFill}
+              sx={{ ml: 0.5, width: 20, height: 20 }}
+            />
+          </LinkStyle>
+          {isOpen && <div className='prod-category-popup'>
+          <>
+            {item.map((list) => {
+              const { path, title, _id } = list;
+
+              return (
+                <div className='popup-item'>
+                  <Icon icon={plusFill} width={15} height={15}/>
+                  <LinkStyle
+                    component={RouterLink}
+                    key={_id}
+                    to={path}
+                  >
+                    {title}
+                  </LinkStyle>
+                </div>
+              );
+            })}
+          </>
+        </div>}
+        </button>
+      </div>
+    );
+  }
+  return <></>;
+}
 MenuDesktop.propTypes = {
   isOffset: PropTypes.bool,
   isHome: PropTypes.bool,
   navConfig: PropTypes.array
 };
 
-export default function MenuDesktop({ isOffset, isHome, navConfig }) {
+export default function MenuDesktop({ isOffset, navConfig }) {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
 
+  const MenuItems = [
+    {
+      title: 'Giới Thiệu',
+      path: '/About-us',
+      icon: aboutFill
+    },
+    {
+      title: 'Sản Phẩm',
+      path: '/q',
+      icon: productFill
+    },
+    {
+      title: 'Tin Tức',
+      path: '/News',
+      icon: newsFill
+    },
+    {
+      title: 'Liên Hệ',
+      path: '/Contact',
+      icon: phoneFill
+    }
+  ];
+
   useEffect(() => {
     if (open) {
-      handleClose();
+      setOpen(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  useEffect(()=>{
 
-  const handleClose = () => {
-    setOpen(false);
+  },[open])
+  const handleToggle= () => {
+    setOpen(!open);
   };
 
   return (
     <Stack direction="row" sx={{ height: '100%', alignItems: 'center' }}>
-      {navConfig.map((link) => (
+      {navConfig.length > 0 && (
+        <MenuDropdownItem
+          item={navConfig}
+          pathname={pathname}
+          isOpen={open}
+          onToggle={handleToggle}
+          isOffset={isOffset}
+          isHome={false}
+          onClickOutSide={()=>setOpen(false)}
+        />
+      )}
+      {MenuItems.map((link) => (
         <MenuDesktopItem
           key={link.title}
           item={link}
           pathname={pathname}
           isOpen={open}
-          onOpen={handleOpen}
-          onClose={handleClose}
           isOffset={isOffset}
-          isHome={isHome}
+          isHome={false}
         />
       ))}
     </Stack>

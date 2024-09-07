@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "introText00": MessageLookupByLibrary.simpleMessage(
-            "Tất cả các sản phẩm tại HK Mobile đều là hàng chính hãng tại Việt Nam"),
+            "Tất cả các sản phẩm tại NatureScent đều là hàng chính hãng tại Việt Nam"),
         "introText01": MessageLookupByLibrary.simpleMessage(
             "Cam kết đổi trả trong vòng 15 ngày nếu xảy ra lỗi"),
         "introText02": MessageLookupByLibrary.simpleMessage(

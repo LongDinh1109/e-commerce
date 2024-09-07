@@ -1,0 +1,106 @@
+.nav-all-prod-list {
+    background-color: rgb(200, 217, 169);
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 10px;
+    margin: 10px;
+    display: flex;
+    gap: 7px;
+    position: relative;
+}
+.nav-all-prod-list > a {
+    margin: 0;
+}
+
+.nav-all-prod-txt {
+    padding-right: 20px;
+}
+
+.prod-category-popup {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(105%);
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+}
+
+.prod-category-popup::before{
+    content: "";
+    border: 6px solid transparent;
+    border-bottom-color: #fff;
+    position: absolute;
+    top: -12px;
+    left: 11%;
+}
+.prod-category-popup .popup-item {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+}
+.prod-category-popup .popup-item >a {
+    margin: 0;
+}
+.footer-mid-content .f-company-info .f-company-info-heading{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-mid-content .f-link {
+    display: flex;
+}
+
+.f-company-info {
+    line-height: 30px;
+}
+
+.f-company-info .f-company-info-heading{
+    color:rgb(83, 90, 70);
+    font-weight: bold;
+}
+
+.logo-sale {
+    margin-top: 20px;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-sale img{
+    max-height: 100%;
+}
+
+.f-contact {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.f-contact .f-contact-phone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 8vh;
+    background-color: rgb(83, 90, 70);
+    border-radius: 50px;
+    color: white;
+    gap: 50px;
+}
+.contact-phone-txt {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.f-location {
+    width: 100%;
+    height: 40vh;
+    padding: 0 20px;
+}

@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 import Product from '../models/product.model.js';
 import ProductRecom from '../models/product-recom.model.js';
 
@@ -420,14 +422,14 @@ async function createProduct(data) {
 
   categoryService.incCountProduct(categoryId);
   brandService.incCountProduct(brandId);
-  return product.save().then(p => p.populate(POPULATE_OPTS).lean().exec());
+  // return product.save().then(p => p.populate(POPULATE_OPTS).lean().exec());
 
-  // const newProduct = new Product({
-  //   _id: new mongoose.Types.ObjectId(),
-  //   ...product,
-  // });
-  // const productSearch = await newProduct.save();
-  // return Product.findById(productSearch._id).populate(POPULATE_OPTS).lean().exec();
+  const newProduct = new Product({
+    _id: new mongoose.Types.ObjectId(),
+    ...product,
+  });
+  const productSearch = await newProduct.save();
+  return Product.findById(productSearch._id).populate(POPULATE_OPTS).lean().exec();
 }
 
 async function updateProduct(identity, data) {

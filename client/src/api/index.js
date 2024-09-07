@@ -49,7 +49,7 @@ export const apiInstance = API;
 // if user exist then login otherwise signup
 export const googleOAuth = (googleCredential) => API.post('/auth/google', { googleCredential });
 
-export const register = (data) => API.post('/auth/login', data);
+export const register = (data) => API.post('/auth/register', data);
 export const login = (username, password) => API.post('/auth/login', { username, password });
 export const logout = (refreshToken) => API.post('/auth/logout', { refreshToken });
 export const sendEmailOtp = (email) => API.post('/auth/send-otp', { email });

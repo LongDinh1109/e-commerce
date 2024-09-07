@@ -36,6 +36,7 @@ export default function RegisterForm() {
       .max(32, t('auth.last-name-max'))
       .required(t('auth.last-name-required')),
     email: Yup.string().email(t('auth.email-invalid')).required(t('auth.email-required')),
+    username: Yup.string().required(t('auth.username-required')),
     password: Yup.string()
       .min(8, t('auth.password-min'))
       .max(32, t('auth.password-max'))
@@ -47,12 +48,13 @@ export default function RegisterForm() {
       firstName: '',
       lastName: '',
       email: '',
+      username:'',
       password: ''
     },
     validationSchema: RegisterSchema,
-    onSubmit: async (values, { setErrors, setSubmitting }) => {
+    onSubmit: async (values, { setErrors, setSubmitting }) => {   
       try {
-        await register(values.email, values.password, values.firstName, values.lastName);
+        await register(values.username,values.email, values.password, values.firstName, values.lastName);
         enqueueSnackbar('Register success', {
           variant: 'success',
           action: (key) => (
@@ -128,14 +130,21 @@ export default function RegisterForm() {
 
           <TextField
             fullWidth
-            autoComplete="username"
+            autoComplete="email"
             type="email"
             label={t('auth.email')}
             {...getFieldProps('email')}
             error={Boolean(touched.email && errors.email)}
             helperText={touched.email && errors.email}
           />
-
+          <TextField
+            fullWidth
+            autoComplete="username"
+            label={t('auth.username')}
+            {...getFieldProps('username')}
+            error={Boolean(touched.username && errors.username)}
+            helperText={touched.username && errors.username}
+          />
           <TextField
             fullWidth
             autoComplete="current-password"

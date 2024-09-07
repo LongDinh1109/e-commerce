@@ -119,7 +119,15 @@ function AuthProvider({ children }) {
     dispatch({ type: 'ERROR', payload: e?.response?.data?.message || e?.response?.data || e });
   };
 
-  const registerAction = async (registerInfo) => {
+  const registerAction = async (username,email,password,lastName,firstName) => {
+    const registerInfo = {
+      email,
+      username,
+      password,
+      lastName,
+      firstName
+    }
+    
     const { data } = await api.register(registerInfo);
     const { accessToken, userData } = data;
     window.localStorage.setItem('accessToken', accessToken);

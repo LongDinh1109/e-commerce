@@ -12,25 +12,6 @@
     "lint": "eslint --ext .js,.jsx ./src",
     "lint:fix": "eslint --fix --ext .js,.jsx ./src"
   },
-  "contributors": [
-    {
-      "name": "Khanh Lam",
-      "email": "quockhanhdev@gmail.com",
-      "url": "https://quockhanh.dev/"
-    },
-    {
-      "name": "Hoang Ho",
-      "email": "hoangho1147@gmail.com"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/quockhanhtn/mern-ecommerce.git",
-    "directory": "/client"
-  },
-  "bugs": {
-    "url": "https://github.com/quockhanhtn/mern-ecommerce/issues"
-  },
   "license": "MIT",
   "eslintConfig": {
     "extends": [

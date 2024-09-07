@@ -60,10 +60,10 @@ class S {
     );
   }
 
-  /// `HK Mobile`
+  /// `NatureScent`
   String get title {
     return Intl.message(
-      'HK Mobile',
+      'NatureScent',
       name: 'title',
       desc: '',
       args: [],

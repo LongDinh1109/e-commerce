@@ -33,6 +33,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "productSearchHint":
             MessageLookupByLibrary.simpleMessage("Search product"),
         "start": MessageLookupByLibrary.simpleMessage("Start"),
-        "title": MessageLookupByLibrary.simpleMessage("HK Mobile")
+        "title": MessageLookupByLibrary.simpleMessage("NatureScent")
       };
 }

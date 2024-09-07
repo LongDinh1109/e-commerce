@@ -60,10 +60,16 @@ async function getOne(identity, selectFields = null, needVirtuals = true) {
     filter.username = identity;
   }
 
+  // const username = "long123";
+
   return User.findOne(filter)
     .select(selectFields)
     .lean({ virtuals: needVirtuals })
     .exec();
+  // return User.findOne({username})
+  // .select(selectFields)
+  // .lean({ virtuals: needVirtuals })
+  // .exec();
 }
 
 async function getOneById(id, selectFields = null, needVirtuals = true) {

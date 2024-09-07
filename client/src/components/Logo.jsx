@@ -16,8 +16,8 @@ export default function Logo({ sx }) {
   const PRIMARY_DARK = theme.palette.primary.dark;
 
   return (
-    <Box sx={{ width: 40, height: 40, ...sx }}>
-      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve">
+    <Box sx={{ width: 200, height: 100, ...sx }}>
+      {/* <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve">
         <defs>
           <linearGradient id="BG1" x1="100%" x2="50%" y1="9.946%" y2="50%">
             <stop offset="0%" stopColor={PRIMARY_DARK} />
@@ -43,7 +43,8 @@ export default function Logo({ sx }) {
           <path d="M265.95 221.234v158.932c0 1.146.067 2.275.191 3.388 34.916-9.296 61.051-39.687 63.192-76.274v-6.494l.127.124c-.69-38.14-27.436-70.16-63.51-79.676z" />
           <path d="M268.305 391.914c4.73 11.317 16.08 19.293 29.336 19.293 17.503 0 31.692-13.898 31.692-31.041V341.74c-11.721 24.406-33.995 43.021-61.028 50.174z" />
         </g>
-      </svg>
+      </svg> */}
+      <img src='/static/illustrations/horizontal-logo.png' alt='horizontal-logo'/>
     </Box>
   );
 }

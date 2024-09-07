@@ -13,7 +13,7 @@ import { getAllDiscounts } from '../../redux/actions/discounts';
 //
 import MainNavbar from './MainNavbar';
 import MainFooter from './MainFooter';
-
+import './main.css'
 // ----------------------------------------------------------------------
 
 const APP_BAR_MOBILE = 64;

@@ -21,6 +21,7 @@ import AuthWithSocial from '../../components/authentication/AuthWithSocial';
 import { CustomPhoneInput } from '../../components/@input';
 // firebase
 import firebase, { auth as firebaseAuth } from '../../firebase';
+import { RegisterForm } from '../../components/authentication/register';
 
 // ----------------------------------------------------------------------
 
@@ -109,7 +110,7 @@ export default function Register() {
             <Typography sx={{ color: 'text.secondary' }}>{t('auth.register-subtitle')}</Typography>
           </Box>
 
-          <AuthWithSocial isLogin={false} />
+          {/* <AuthWithSocial isLogin={false} /> */}
 
           {/* <Stack spacing={3}> */}
           {/*  {errorMgs && <Alert severity="error">{errorMgs}</Alert>} */}
@@ -124,7 +125,7 @@ export default function Register() {
           {/*  </LoadingButton> */}
           {/* </Stack> */}
 
-          {/* <RegisterForm /> */}
+          <RegisterForm />
 
           <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
             {t('auth.accept-terms')}&nbsp;

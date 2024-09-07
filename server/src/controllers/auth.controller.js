@@ -19,7 +19,7 @@ export const register = async (req, res, next) => {
         { token: JwtUtils.generateToken(userData), user: userData }
       );
     }
-    throw new Error('Register failed !');
+    // throw new Error('Register failed !');
   } catch (err) { next(err) }
 };
 

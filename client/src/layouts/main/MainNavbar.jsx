@@ -185,16 +185,16 @@ function MainNavbar({ categoryList, showCategoryMenu, cartItemsCount }) {
               <MenuMobile isOffset={isOffset} isHome={false} navConfig={categoryList} />
             </MHidden>
 
-            <LanguagePopover isShowTitle />
+            {/* <LanguagePopover isShowTitle /> */}
 
-            <NavbarItem text={t('home.order-history')} icon={history24Filled} color="inherit" href="/order-history" />
-            <NavbarItem
+            {/* <NavbarItem text={t('home.order-history')} icon={history24Filled} color="inherit" href="/order-history" /> */}
+            {/* <NavbarItem
               badgeContent={cartItemsCount}
               text={t('home.cart')}
               icon={cart24Regular}
               color="primary"
               href="/cart"
-            />
+            /> */}
 
             <AccountPopover menuOptions={accountMenus} isShowTitle />
           </Stack>
@@ -204,7 +204,7 @@ function MainNavbar({ categoryList, showCategoryMenu, cartItemsCount }) {
           <MHidden width="mdDown">
             <ColorBar>
               <ContainerStyle maxWidth="lg">
-                <MenuDesktop isOffset={isOffset} isHome={false} navConfig={categoryList} />
+                <MenuDesktop isOffset={isOffset} navConfig={categoryList} />
               </ContainerStyle>
             </ColorBar>
           </MHidden>

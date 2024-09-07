@@ -57,7 +57,7 @@ export const sendMail = (receiver, subject, title, content) => {
     template: 'verification', // public/mail-template/verification.hbs
     context: {
       logoHref: 'https://mern-ecommerce-b848d.web.app/',
-      description: 'Welcome to HK Mobile',
+      description: 'Welcome to NatureScent',
       title,
       content
     },
