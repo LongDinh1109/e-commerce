@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "set \"NODE_OPTIONS=--openssl-legacy-provider\"",
+    "prebuild": "cross-env NODE_OPTIONS=--openssl-legacy-provider GENERATE_SOURCEMAP=false",
     "build": "react-scripts build",
     "pullrequest": "react-scripts build",
     "test": "react-scripts test",
@@ -121,6 +121,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/eslint-parser": "^7.14.3",
+    "cross-env": "^7.0.3",
     "eslint": "^7.26.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
