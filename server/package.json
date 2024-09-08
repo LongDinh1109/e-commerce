@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon -r dotenv/config ./src/index.js --trace-warnings --unhandled-rejections=strict",
     "start": "node -r dotenv/config ./src/index.js",
