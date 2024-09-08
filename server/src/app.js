@@ -18,16 +18,16 @@ import configs from './configs.js';
 //------------------------------------------------------------------------------
 
 const app = express();
-const __dirname = process.cwd();
+const __directname = process.cwd();
 
 
 // share uploads resource
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/public/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
-app.use('/public/logs', express.static(path.join(__dirname, 'public', 'logs')));
+app.use(express.static(path.join(__directname, 'public')));
+app.use('/public/uploads', express.static(path.join(__directname, 'public', 'uploads')));
+app.use('/public/logs', express.static(path.join(__directname, 'public', 'logs')));
 
 app.get('/favicon.ico', (_, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
+  res.sendFile(path.join(__directname, 'public', 'favicon.ico'));
 });
 
 

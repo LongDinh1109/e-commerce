@@ -66,7 +66,7 @@ class LogUtils {
     if (object) { logMethod(logMessage, object); }
     else { logMethod(logMessage); }
 
-    this.saveLog(type, time, tag, message, object);
+    // this.saveLog(type, time, tag, message, object);
   };
 
   static info(tag, message, object = null) {
