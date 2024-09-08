@@ -154,7 +154,7 @@ export default function BrandForm({ currentId, open, setOpen }) {
     name: Yup.string()
       .trim()
       .required(t('dashboard.brands.name-validation'))
-      .min(6, t('dashboard.brands.name-validation-len'))
+      .min(1, t('dashboard.brands.name-validation-len'))
       .max(25, t('dashboard.brands.name-validation-len'))
   });
   const formik = useFormik({
@@ -236,7 +236,7 @@ export default function BrandForm({ currentId, open, setOpen }) {
               <MotionInView variants={varFadeInUp}>
                 <CountryPicker
                   label={t('dashboard.brands.country')}
-                  onChange={(e, newValue) => setBrandData({ ...brandData, country: newValue.label })}
+                  onChange={(e, newValue) => setBrandData({ ...brandData, country: newValue && newValue.label })}
                   value={brandData.country}
                   required
                   fullWidth

@@ -71,13 +71,14 @@ export default function HomePage() {
 
             {/* Brand List carousel */}
             <Card>
-              <CardHeader title={t('dashboard.brands.heading').toUpperCase()} />
+              <CardHeader title={t('dashboard.brands.heading').toUpperCase()} style={{'border-bottom': '1px solid #80808029'}}/>
               <CardContent>
                 <BrandCarousel items={brandsList} isLoading={isLoadingBrand} />
               </CardContent>
             </Card>
 
-            <Box>
+
+            {/* <Box>
               <Card sx={{ marginBottom: 1.5, padding: 3 }}>
                 <CardContent sx={{ padding: 0, '&:last-child': { paddingBottom: 0 } }}>
                   <Box sx={{ display: 'flex', marginBottom: -1 }}>
@@ -91,7 +92,7 @@ export default function HomePage() {
                 </CardContent>
               </Card>
               <ProductCarousel products={productForYou.list} isLoading={productForYou.isLoading} />
-            </Box>
+            </Box> */}
 
             <Box>
               <Card sx={{ marginBottom: 1.5, padding: 3 }}>

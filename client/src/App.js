@@ -48,7 +48,7 @@ export default function App() {
         <ThemePrimaryColor>
           <RtlLayout>
             <NotistackProvider>
-              <Settings />
+              {/* <Settings /> */}
               <ScrollToTop />
               {isInitialized ? <Router /> : <LoadingScreen />}
             </NotistackProvider>

@@ -26,7 +26,7 @@ const newsData = [
 ];
 
 const NewsPage = () => (
-    <div style={{ fontFamily: 'Arial, sans-serif', margin: '20px' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', margin: '20px 200px' }}>
       <h1>Tin Tức Về Nước Xả Vải</h1>
       {newsData.map((article) => (
         <div key={article.id} style={{ border: '1px solid #ddd', borderRadius: '8px', marginBottom: '20px', padding: '20px' }}>

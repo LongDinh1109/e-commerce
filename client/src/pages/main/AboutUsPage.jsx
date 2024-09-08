@@ -33,7 +33,7 @@ const companyInfo = {
 };
 
 const InfoPage = () => (
-  <div style={{ fontFamily: 'Arial, sans-serif', margin: '20px' }}>
+  <div style={{ fontFamily: 'Arial, sans-serif', margin: '20px 200px' }}>
     <h1>{companyInfo.name}</h1>
     <section style={{ marginBottom: '30px' }}>
       <h2>Giới Thiệu</h2>

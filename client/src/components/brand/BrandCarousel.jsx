@@ -9,7 +9,7 @@ import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles
 import { CarouselControlsArrowsBasic3, CarouselControlsPaging1 } from '../carousel/controls';
 
 const ImgStyle = styled('img')(({ theme }) => ({
-  objectFit: 'contain',
+  objectFit: 'cover',
   borderRadius: theme.shape.borderRadiusSm,
   border: `solid 2px ${theme.palette.divider}`,
   backgroundColor: 'white',
@@ -41,7 +41,7 @@ BrandCarousel.defaultProps = {
   numberShow: 5,
   isShowTitle: true,
   imgObjectFit: 'cover',
-  customHeight: 60,
+  customHeight: '100%',
   sx: {}
 };
 
@@ -67,7 +67,7 @@ export default function BrandCarousel({ isLoading, items, customHeight, sx }) {
     }),
     swipeToSlide: true,
     slidesPerRow: 2,
-    rows: 2,
+    rows: 1,
     slidesToShow: 3,
     slidesToScroll: 2,
     infinite: true,
