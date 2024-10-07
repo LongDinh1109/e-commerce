@@ -78,11 +78,11 @@ const MainFooter = () => {
                 </li>
                 <li>
                   <span className='f-company-info-heading'>Trụ Sở: </span>
-                  <span>142B, đường số 1,....... Thành phố Thủ Đức, thành phố HCM, VN.</span>
+                  <span>38/65/17 đường số 2, kp 13, Binh Hưng Hòa B, Bình Tân, HCM, VN.</span>
                 </li>
                 <li>
                   <span className='f-company-info-heading'>Hotline: </span>
-                  <span>09 2222 8888</span>
+                  <span>0907 779 338</span>
                 </li>
                 <li>
                   <span className='f-company-info-heading'>Email: </span>
@@ -90,7 +90,7 @@ const MainFooter = () => {
                 </li>
                 <li>
                   <span className='f-company-info-heading'>Phản ánh về chất lượng sản phẩm: </span>
-                  <span>0777 777....</span>
+                  <span>0907 779 338</span>
                 </li>
               </ul>
             </Typography>
@@ -159,11 +159,11 @@ const MainFooter = () => {
                   </div>       
                   <div className='contact-phone-txt'>
                     <p>Liên hệ 24/7</p>
-                    <p>0909........</p>
+                    <p>0907.779.338</p>
                   </div>    
                 </div>
                 <div className='f-location'>
-                  <iframe title="mylocation" width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1231%20qu%E1%BB%91c%20l%E1%BB%99%201A%20Qu%E1%BA%ADn%20B%C3%ACnh%20T%C3%A2n%20%20TP%20HCM+(Go!%20An%20L%E1%BA%A1c)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps trackers</a>
+                  <iframe title="mylocation" width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.118429727245!2d106.59265717497018!3d10.802240589348136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b8f6cd56159%3A0x5efd1862ec2ac03f!2zMzgvNjUvMjQsIDM4LzY1LzE1IMSQxrDhu51uZyBT4buRIDIsIGtodSBwaOG7kSA1LCBCw6xuaCBUw6JuLCBI4buTIENow60gTWluaCA3MDAwMDAsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1728290184708!5m2!1svi!2s"><a href="https://www.gps.ie/">gps trackers</a>
                   </iframe>
                 </div>
               </div>

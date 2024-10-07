@@ -27,8 +27,8 @@ const companyInfo = {
   ],
   contact: {
     email: "ho-tro@huongthiennhien.com",
-    phone: "+84-123-456-789",
-    address: "123 Đường Xanh, Thành phố Sinh Thái, TP 45678"
+    phone: "0907 779 338",
+    address: "38/65/17 đường số 2, kp 13, Binh Hưng Hòa B, Bình Tân, HCM"
   }
 };
 

@@ -44,7 +44,7 @@ export default function Logo({ sx }) {
           <path d="M268.305 391.914c4.73 11.317 16.08 19.293 29.336 19.293 17.503 0 31.692-13.898 31.692-31.041V341.74c-11.721 24.406-33.995 43.021-61.028 50.174z" />
         </g>
       </svg> */}
-      <img src='/static/illustrations/horizontal-logo.png' alt='horizontal-logo'/>
+      <img src='/static/illustrations/horizontal-lotus-logo.png' alt='horizontal-lotus-logo'/>
     </Box>
   );
 }
