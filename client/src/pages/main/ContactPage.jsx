@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Dummy data for the contact page in Vietnamese
 const contactInfo = {
-  email: "ho-tro@natures-scent.com",
+  email: "Nguyenhieusaoviet@gmail.com",
   phone: "090 7779 338",
   address: "38/65/17 đường số 2, kp 13, Binh Hưng Hòa B, Bình Tân, HCM"
 };

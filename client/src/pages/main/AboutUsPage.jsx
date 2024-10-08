@@ -26,7 +26,7 @@ const companyInfo = {
     }
   ],
   contact: {
-    email: "ho-tro@huongthiennhien.com",
+    email: "Nguyenhieusaoviet@gmail.com",
     phone: "0907 779 338",
     address: "38/65/17 đường số 2, kp 13, Binh Hưng Hòa B, Bình Tân, HCM"
   }

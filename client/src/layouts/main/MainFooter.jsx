@@ -86,7 +86,7 @@ const MainFooter = () => {
                 </li>
                 <li>
                   <span className='f-company-info-heading'>Email: </span>
-                  <span>cskh@abc.vn</span>
+                  <span>Nguyenhieusaoviet@gmail.com</span>
                 </li>
                 <li>
                   <span className='f-company-info-heading'>Phản ánh về chất lượng sản phẩm: </span>
