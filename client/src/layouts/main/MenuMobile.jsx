@@ -5,6 +5,9 @@ import menu2Fill from '@iconify/icons-eva/menu-2-fill';
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
 import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
+import gridFill from '@iconify/icons-eva/grid-fill';
+import plusFill from '@iconify/icons-eva/plus-fill';
+
 // material
 import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, List, Drawer, Link, Collapse, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
@@ -57,51 +60,27 @@ function MenuMobileItem({ item, isOpen, isActive, onOpen }) {
         </ListItemStyle>
 
         <Collapse in={isOpen} timeout="auto" unmountOnExit>
-          <Box sx={{ display: 'flex', flexDirection: 'column-reverse' }}>
-            <NavSection
-              navConfig={menuConfig[2].children}
-              sx={{
-                '&.MuiList-root:last-child .MuiListItem-root': {
-                  height: 200,
-                  backgroundSize: '92%',
-                  backgroundPosition: 'center',
-                  bgcolor: 'background.neutral',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundImage: 'url(/static/illustrations/illustration_dashboard.png)',
-                  '& > *:not(.MuiTouchRipple-root)': { display: 'none' }
-                },
-                '& .MuiListSubheader-root': {
-                  pl: PADDING,
-                  display: 'flex',
-                  alignItems: 'center',
-                  '&:before': {
-                    ml: '6px',
-                    mr: '22px',
-                    width: 8,
-                    height: 2,
-                    content: "''",
-                    borderRadius: 2,
-                    bgcolor: 'currentColor'
-                  }
-                },
-                '& .MuiListItem-root': {
-                  pl: PADDING,
-                  '&:before': { display: 'none' },
-                  '&.active': { color: 'primary.main', bgcolor: 'transparent' }
-                },
-                '& .MuiListItemIcon-root': {
-                  width: ICON_SIZE,
-                  height: ICON_SIZE,
-                  '&:before': {
-                    width: 4,
-                    height: 4,
-                    content: "''",
-                    borderRadius: '50%',
-                    bgcolor: 'currentColor'
-                  }
-                }
-              }}
-            />
+          <Box sx={{ display: 'flex', flexDirection: 'column-reverse', marginLeft:"10px" }}>
+            {children.map((item) => (
+              <ListItemStyle
+                button
+                key={item.title}
+                to={item.path}
+                component={RouterLink}
+                sx={{
+                  ...(isActive && {
+                    color: 'primary.main',
+                    fontWeight: 'fontWeightMedium',
+                    bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity)
+                  })
+                }}
+              >
+                <ListItemIcon>
+                  <Icon icon={plusFill} width={15} height={15}/>
+                </ListItemIcon>
+                <ListItemText disableTypography primary={item.title} />
+              </ListItemStyle>
+            ))}
           </Box>
         </Collapse>
       </div>
@@ -133,11 +112,19 @@ MenuMobile.propTypes = {
   isHome: PropTypes.bool
 };
 
-export default function MenuMobile({ isOffset, isHome }) {
+export default function MenuMobile({ isOffset, isHome, navConfig }) {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const menuItemConfig = {
+    item: {
+      title: 'Danh mục',
+      path: '/contact',
+      icon: <Icon icon={gridFill} width={22} height={22} />,
+      children: navConfig
+    }
+  };
   useEffect(() => {
     if (mobileOpen) {
       handleDrawerClose();
@@ -182,6 +169,13 @@ export default function MenuMobile({ isOffset, isHome }) {
           </Link>
 
           <List disablePadding>
+            <MenuMobileItem
+              key={menuItemConfig.title}
+              item={menuItemConfig.item}
+              isOpen={open}
+              onOpen={handleOpen}
+              isActive={pathname === menuItemConfig.path}
+            />
             {menuConfig.map((link) => (
               <MenuMobileItem
                 key={link.title}

@@ -1,3 +1,4 @@
+import { Box } from '@material-ui/core';
 import React from 'react';
 
 // Dummy data for the company information page in Vietnamese
@@ -33,7 +34,8 @@ const companyInfo = {
 };
 
 const InfoPage = () => (
-  <div style={{ fontFamily: 'Arial, sans-serif', margin: '20px 200px' }}>
+  <Box m={{ xs: 1 , md: 6}} display='flex' justifyContent='center'>
+  <div style={{ fontFamily: 'Arial, sans-serif' }}>
     <h1>{companyInfo.name}</h1>
     <section style={{ marginBottom: '30px' }}>
       <h2>Giới Thiệu</h2>
@@ -59,6 +61,7 @@ const InfoPage = () => (
       <p><strong>Địa Chỉ:</strong> {companyInfo.contact.address}</p>
     </section>
   </div>
+  </Box>
 );
 
 export default InfoPage;

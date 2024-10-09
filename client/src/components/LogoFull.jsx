@@ -18,9 +18,7 @@ export default function LogoFull({ sx }) {
   return (
       <>
       <div style={{"display":"contents"}}>
-        {/* <Box sx={{ width: 250, height: 100, ...sx }}> */}
-          <img src='/static/illustrations/lotus-logo.png' alt='lotus-logo'/>
-        {/* </Box> */}
+        <img src='/static/illustrations/horizontal-lotus-logo.png' alt='horizontal-lotus-logo'/>
       </div>
       </>
   );
